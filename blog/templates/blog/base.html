@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+  <div>
+    <a href="{% url 'blog_list' %}">Home</a>
+
+
+      {% block header %}{% endblock %}
+      {% block content %}{% endblock %}
+      {% if user.is_authenticated  %}
+      <p>ユーザー:{{ user }}</p>  
+      <p><a href="{% url 'logout' %}">ログアウト</a></p>
+      {% endif %}
+  </div>
+
+</body>
+</html>

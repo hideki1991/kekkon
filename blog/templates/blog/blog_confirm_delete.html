@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block title %}title{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+<h1>Blogs</h1>
+<form method="post">{% csrf_token %}
+    <p>"{{ object.title }}"を削除しますか?</p>
+    <h1>{{ object.title }}</h1>
+    <p>{{ object.text }}</p>
+
+    <input type="submit" value="Confirm">
+</form>
+{% endblock %}
