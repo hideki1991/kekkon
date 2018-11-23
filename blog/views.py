@@ -34,12 +34,12 @@ class BlogDetailView(DetailView):
 class BlogCreateView(CreateView):
     model = Blog
     success_url="/blog/"
-    fields = ['title','text','category']
+    fields = ['title','text','category','document']
     login_required = True
 
 class BlogUpdateView(UpdateView):
     model = Blog
-    fields = ['title','text','category']
+    fields = ['title','text','category','document']
     template_name_suffix = '_update_form'
     success_url="/blog/"
 

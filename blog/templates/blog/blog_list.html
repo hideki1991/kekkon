@@ -2,15 +2,44 @@
 {% block title %}title{% endblock %}
 {% block header %}{% endblock %}
 {% block content %}
-<h1>Blogs</h1>
-<ul>
+
+
+
 {% for blog in object_list %}
-    <li>{{ blog.title }}<br>{{blog.datetime}}</li>
-    <a href="{% url 'blog_detail' pk=blog.pk %}">詳細</a>
+    <a href="{% url 'blog_detail' pk=blog.pk %}">
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <img src="https://storage.googleapis.com/colors_blog/{{ blog.document }}"
+      >
+    </div>
+    <div class="col-9">
+      <p>{{blog.title}}</p><br>
+      <span>{{blog.datetime}}</span>
+      <span>{{blog.category}}</span>
+    </div>
+  </div>
+  </div>
+  <hr>
+</a>
+
 {% empty %}
     <li>No articles yet.</li>
 {% endfor %}
-</ul>
 
+<!--
 <a href="{% url 'blog_create'  %}">新規投稿</a>
+-->
+<style>
+img{
+  float: left;
+  margin: 10px 0px 10px 0px;
+  width: 100%;
+}
+.container-fluid{
+  margin: 30px 10px 10px 0px;
+}
+
+</style>
+
 {% endblock %}
